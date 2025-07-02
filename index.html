@@ -1,90 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kaysha Designs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to right, #d7f0fa, #f7e9f5);
-      color: #333;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaysha Designs</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        background: linear-gradient(to right, #d7f0fa, #f7e9f5);
+        color: #333;
+      }
+      .background {
+        min-height: 100vh; /* Full viewport height */
+        width: 100%;
+        background: linear-gradient(
+          90deg,
+          #cdffd8,
+          #94b9ff
+        ); /* Gradient background */
+        background-size: cover;
+        background-attachment: fixed; /* Optional: Fixed background for scrolling effect */
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        text-align: center;
+      }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8em;
-      color: #8B008B;
-      margin-bottom: 0.2em;
-    }
-
-    .tagline {
-      font-size: 1.3em;
-      font-style: italic;
-      color: #6e317c;
-      margin-bottom: 1.5em;
-    }
-
-    .button {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background-color: #8B008B;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      transition: background 0.3s;
-    }
-
-    .button:hover {
-      background-color: #a032a0;
-    }
-
-    footer {
-      margin-top: 2em;
-      font-size: 0.9em;
-      color: #555;
-    }
-
-    .logo {
-      width: 120px;
-      margin-bottom: 20px;
-    }
-
-    @media (max-width: 600px) {
       h1 {
-        font-size: 2em;
+        font-family: "Playfair Display", serif;
+        font-size: 2.8em;
+        color: #000;
+        margin-bottom: 0.2em;
       }
+
       .tagline {
-        font-size: 1.1em;
+        font-size: 1.3em;
+        font-style: italic;
+        color: #000;
+        margin-bottom: 1.5em;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <!-- Optional Logo -->
-    <img src="logo.png" alt="Kaysha Logo" class="logo" />
 
-    <h1>Welcome to Kaysha Designs</h1>
-    <p class="tagline">✨ Grace in every thread</p>
+      .button {
+        display: inline-block;
+        margin: 10px;
+        padding: 12px 20px;
+        background-color: #8b008b;
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: background 0.3s;
+      }
 
-    <a href="https://www.instagram.com/kaysha_designs/" class="button" target="_blank">Follow on Instagram</a>
-    <a href="tel:+918237474507" class="button">Call Us</a>
+      .button:hover {
+        background-color: #a032a0;
+      }
 
-    <footer>
-      <p>📍 Modestwear for modern women | Made in India</p>
-      <p>&copy; 2025 Kaysha Designs</p>
-    </footer>
-  </div>
-</body>
+      footer {
+        margin-top: 2em;
+        font-size: 0.9em;
+        color: #555;
+      }
+
+      .logo {
+        width: 50%;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2em;
+        }
+        .tagline {
+          font-size: 1.1em;
+        }
+      }
+    </style>
+  </head>
+  <body class="background">
+    <div class="container">
+      <!-- Optional Logo -->
+      <img src="kaysha_logo.png" alt="kaysha_designs" class="logo" />
+
+      <h1>Welcome to Kaysha Designs</h1>
+      <p class="tagline">✨ Grace in every thread</p>
+
+      <a
+        href="https://www.instagram.com/kaysha_designs/"
+        class="button"
+        target="_blank"
+        >Follow on Instagram</a
+      >
+      <a href="tel:+918237474507" class="button">Call Us</a>
+
+      <footer>
+        <p>📍 Modestwear for modern women | Made in India</p>
+        <p>&copy; 2025 Kaysha Designs</p>
+      </footer>
+    </div>
+  </body>
 </html>
