@@ -86,15 +86,20 @@
         display: inline-block;
         margin: 10px;
         padding: 12px 20px;
-        background-color: #8b008b;
+        background-color: #4a5568;
         color: white;
         text-decoration: none;
-        border-radius: 30px;
-        transition: background 0.3s;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+        font-weight: 500;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
       .button:hover {
-        background-color: #a032a0;
+        background-color: #2d3748;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transform: translateY(-1px);
       }
 
       footer {
@@ -107,6 +112,90 @@
         width: 50%;
         margin-bottom: 20px;
         max-width: 300px;
+      }
+
+      .upi-button {
+        position: relative;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px 25px;
+        font-size: 1.1em;
+        font-weight: 600;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .upi-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+      }
+
+      .upi-button:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .qr-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .qr-popup.show {
+        display: flex;
+      }
+
+      .qr-content {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        position: relative;
+        max-width: 90vw;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #666;
+      }
+
+      .qr-image {
+        width: 250px;
+        height: 250px;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        margin: 10px 0;
+      }
+
+      .upi-id {
+        font-size: 1em;
+        color: #4a5568;
+        font-weight: 600;
+        background: #f7fafc;
+        padding: 10px 20px;
+        border-radius: 8px;
+        margin-top: 15px;
+        font-family: monospace;
       }
 
       .share-section {
@@ -130,19 +219,21 @@
         align-items: center;
         gap: 8px;
         padding: 10px 15px;
-        background: rgba(139, 0, 139, 0.9);
+        background: #718096;
         color: white;
         text-decoration: none;
-        border-radius: 25px;
+        border-radius: 8px;
         font-size: 0.9em;
         transition: all 0.3s ease;
-        border: 2px solid transparent;
+        border: 1px solid #e2e8f0;
+        font-weight: 500;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
       .share-btn:hover {
-        background: rgba(160, 50, 160, 1);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(139, 0, 139, 0.3);
+        background: #4a5568;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       }
 
       @media (max-width: 768px) {
@@ -166,6 +257,13 @@
           width: 100%;
           max-width: 250px;
           justify-content: center;
+        }
+        .qr-image {
+          width: 200px;
+          height: 200px;
+        }
+        .qr-content {
+          padding: 20px;
         }
       }
 
@@ -206,6 +304,25 @@
       >
       <a href="tel:+918237474507" class="button">📞 Call Us</a>
       <a href="mailto:kayshadesigns10@gmail.com" class="button">✉️ Email Us</a>
+      <button class="button upi-button" onclick="showQR()">
+        💳 Pay via UPI - Click for QR Code
+      </button>
+
+      <div class="qr-popup" id="qrPopup" onclick="hideQR()">
+        <div class="qr-content" onclick="event.stopPropagation()">
+          <button class="close-btn" onclick="hideQR()">&times;</button>
+          <h3>Scan QR Code to Pay</h3>
+          <img src="images/UPI_ID.png" alt="UPI QR Code" class="qr-image" />
+          <div class="upi-id">karish.shaikh25-2@okaxis</div>
+          <p style="margin-top: 15px; color: #666; font-size: 0.9em;">Or tap the button below on mobile</p>
+          <a
+            href="upi://pay?pa=karish.shaikh25-2@okaxis&pn=Kaysha%20Designs&cu=INR"
+            class="button"
+            style="margin-top: 10px; font-size: 0.9em;"
+            >Open UPI App</a
+          >
+        </div>
+      </div>
 
       <div class="share-section">
         <h3>Share Kaysha Designs</h3>
@@ -261,17 +378,29 @@
 
       function shareGeneral() {
         if (navigator.share) {
-          navigator.share({
-            title: 'Kaysha Designs - Stylish, Modest & Comfortable Wear',
-            text: 'Check out Kaysha Designs for stylish, modest, and comfortable wear!',
-            url: window.location.href
-          }).catch(console.error);
+          navigator
+            .share({
+              title: "Kaysha Designs - Stylish, Modest & Comfortable Wear",
+              text: "Check out Kaysha Designs for stylish, modest, and comfortable wear!",
+              url: window.location.href,
+            })
+            .catch(console.error);
         } else {
           // Fallback for browsers that don't support Web Share API
-          const text = "Check out Kaysha Designs - Stylish, Modest & Comfortable Wear! Website: " + window.location.href;
+          const text =
+            "Check out Kaysha Designs - Stylish, Modest & Comfortable Wear! Website: " +
+            window.location.href;
           const shareUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
           window.open(shareUrl, "_blank");
         }
+      }
+
+      function showQR() {
+        document.getElementById('qrPopup').classList.add('show');
+      }
+
+      function hideQR() {
+        document.getElementById('qrPopup').classList.remove('show');
       }
     </script>
   </body>
